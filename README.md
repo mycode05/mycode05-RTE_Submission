@@ -31,7 +31,7 @@ All three submitted weight checkpoints share the exact same **183,833,090**\-par
 1. In the top menu bar, click **Runtime** \-\> **Run all** (or run the cells sequentially from top to bottom).  
 2. When **Cell 1** prompts **Click 'Choose Files'**, select **both** of the following files together from your local machine:  
    - The training zip archive (**Dataset for Challenge-20261017.zip**, which automatically extracts **train.jsonl** into **./rte\_data/train.jsonl**)  
-   - The validation file (**val.jsonl** or **valid.jsonl**)  
+   - The validation file (**val.jsonl**)  
 3. **Cell 2** trains all 3 weight variants strictly on **./rte\_data/train.jsonl**, evaluates them on **val.jsonl**, and saves each **best\_model\_weights.pt** and **valid\_predictions.jsonl**.  
 4. **Cell 3** mounts Google Drive and backs up all 3 trained model weight files, tokenizer, config, and validation predictions into **/content/drive/MyDrive/CS6315E\_RTE\_Submission**.
 
