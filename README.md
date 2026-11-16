@@ -16,39 +16,6 @@ The GitHub repository contains the following files:
 - **CS6315E_RTE_Submission.zip** — Complete project submission containing notebooks, trained model checkpoints, validation data, tokenizer, configuration, report, and model card.
 - **Dataset for Challenge-20261017.zip** — Training dataset archive.
 
-### Contents of CS6315E_RTE_Submission.zip
-
-Download and extract `CS6315E_RTE_Submission.zip`. The extracted folder contains:
-
-```text
-CS6315E_RTE_Submission/
-│
-├── MODEL CARD.pdf
-├── WRITTEN REPORT.pdf
-│
-├── train_rte.ipynb
-├── demo_eval_rte.ipynb
-│
-├── val.jsonl
-│
-├── submission_base_seed42_lr2e5/
-├── submission_base_seed2026_lr25e5/
-├── submission_base_seed100_lr15e5/
-│
-├── final_submission/
-├── saved_config/
-└── saved_tokenizer/
-```
-
-### Extraction Instructions
-
-1. Download `CS6315E_RTE_Submission.zip` from the GitHub repository.
-2. Extract the ZIP archive using Windows File Explorer, 7-Zip, or WinRAR.
-3. Open the extracted `CS6315E_RTE_Submission` folder.
-4. Keep the original folder structure and filenames unchanged.
-5. Open the required Jupyter notebook in Google Colab.
-
-The `README.md` file is maintained separately in the GitHub repository and is not included inside the submission ZIP.
 
 ## 3. Submitted Weight Variants and Previously Obtained Validation Results
 
@@ -56,7 +23,69 @@ All three submitted weight checkpoints share the exact same 183,833,090-paramete
 
 1. **submission_base_seed42_lr2e5/best_model_weights.pt** — Validation Accuracy: **85.20%** | Validation F1: **0.8551**
 2. **submission_base_seed100_lr15e5/best_model_weights.pt** — Validation Accuracy: **83.39%** | Validation F1: **0.8392**
-3. **submission_base_seed2026_lr25e5/best_model_weights.pt** — Validation Accuracy: **84.12%** | Validation F1: **0.8571**
+3. **submission_base_seed2026_lr25e5/best_model_weights.pt** — Validation Accuracy: **84.12%** | Validation F1: **0.84. Project Folder Structure
+
+The submission contains two separate archives for the trained models and final submission artifacts.
+
+Archive 1: CS6315E_RTE_Models.zip
+
+Contains all three trained model directories:
+
+CS6315E_RTE_Models.zip
+│
+├── submission_base_seed42_lr2e5/
+├── submission_base_seed100_lr15e5/
+└── submission_base_seed2026_lr25e5/
+
+Archive 2: CS6315E_RTE_Final_Submission.zip
+
+Contains the final submission artifacts and supporting files:
+
+CS6315E_RTE_Final_Submission.zip
+│
+├── final_submission/
+├── saved_config/
+└── saved_tokenizer/
+
+Extraction Instructions
+
+Follow these steps carefully to arrange the project files correctly.
+
+Step 1: Download both ZIP archives.
+
+Step 2: Extract CS6315E_RTE_Models.zip separately. This will produce the three trained model directories.
+
+Step 3: Extract CS6315E_RTE_Final_Submission.zip separately. This will produce the final_submission, saved_config, and saved_tokenizer directories.
+
+Step 4: Create a main folder named CS6315E_RTE_Submission.
+
+Step 5: Move all the extracted folders from both archives into this same main folder.
+
+Do not place one extracted archive inside the other. Both archives must be extracted separately, and their extracted folders must be placed together in the same directory.
+
+The final project structure should look like this:
+
+CS6315E_RTE_Submission/
+│
+├── README.md
+├── train_rte.ipynb
+├── demo_eval_rte.ipynb
+│
+├── MODEL CARD.pdf
+├── WRITTEN REPORT.pdf
+│
+├── Dataset for Challenge-20261017.zip
+├── val.jsonl
+│
+├── submission_base_seed42_lr2e5/
+├── submission_base_seed100_lr15e5/
+├── submission_base_seed2026_lr25e5/
+│
+├── final_submission/
+├── saved_config/
+└── saved_tokenizer/
+
+Important: Preserve the original directory names and their internal contents. The evaluation notebook uses directory paths to locate the model files. Changing the folder names or arrangement may cause file-loading errors.571**
 
 These are the previously obtained validation results for the three trained model variants.
 
@@ -95,7 +124,7 @@ These are the previously obtained validation results for the three trained model
 
 1. Click **Runtime → Run all**.
 2. When prompted by `files.upload()`, select both:
-   - `val.jsonl` (or `valid.jsonl`)
+   - `val.jsonl` 
    - `test.jsonl`
 3. The notebook automatically performs the following operations:
    - Mounts Google Drive and displays the **Pre-Test Validation Accuracy and F1** for all three saved models.
@@ -105,12 +134,3 @@ These are the previously obtained validation results for the three trained model
 
 **Note:** The test file `test.jsonl` must be provided separately when running the evaluation notebook.
 
-## 6. Important Notes
-
-- The complete project submission is available in `CS6315E_RTE_Submission.zip`.
-- The training dataset is provided separately as `Dataset for Challenge-20261017.zip`.
-- The validation file `val.jsonl` is included in the submission folder.
-- The three trained model checkpoints, tokenizer, and configuration files are included in the submission.
-- Use the saved checkpoints in `demo_eval_rte.ipynb` to evaluate the previously trained models.
-- Running `train_rte.ipynb` again performs a new training run. Exact reproduction of the previously obtained metrics is not guaranteed because of possible differences in execution environments and GPU computation.
-- Google Colab with a T4 GPU is recommended for training and evaluation.
