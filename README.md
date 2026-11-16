@@ -73,7 +73,7 @@ These are the previously obtained validation results for the three trained model
 1. In the top menu bar, click **Runtime → Run all** (or run the cells sequentially from top to bottom).
 2. When Cell 1 prompts **Click 'Choose Files'**, select both of the following files together from your local machine:
    - The training ZIP archive (**Dataset for Challenge-20261017.zip**, which automatically extracts `train.jsonl` into `./rte_data/train.jsonl`).
-   - The validation file (`val.jsonl` or `valid.jsonl`).
+   - The validation file (`val.jsonl`).
 3. Cell 2 trains all three weight variants strictly on `./rte_data/train.jsonl`, evaluates them on the validation file, and saves each `best_model_weights.pt` and `valid_predictions.jsonl`.
 4. Cell 3 mounts Google Drive and backs up all three trained model weight files, tokenizer, configuration, and validation predictions into:
 
