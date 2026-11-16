@@ -8,19 +8,17 @@ This repository solves the Recognizing Textual Entailment (RTE) binary classific
 - **Pooling and Classification Head:** Attention-masked Mean Pooling across all sequence tokens + 5x Multi-Sample Dropout (p = 0.1, 0.2, 0.3, 0.4, 0.5) sharing a single linear projection (768 to 2).
 - **Regularization and Optimization:** Symmetric KL-Divergence R-Drop (alpha = 1.0–2.0), Label Smoothing (0.05), Layer-wise Learning Rate Decay (decay_rate = 0.95), and Cosine learning rate schedule.
 
-## 2. Submission Files and Extraction Instructions
+## 2. Repository Contents
 
-The complete project submission is provided as a ZIP archive named:
+The GitHub repository contains the following files:
 
-**`CS6315E_RTE_Submission.zip`**
+- **README.md** — Project overview, architecture, extraction instructions, and execution guide.
+- **CS6315E_RTE_Submission.zip** — Complete project submission containing notebooks, trained model checkpoints, validation data, tokenizer, configuration, report, and model card.
+- **Dataset for Challenge-20261017.zip** — Training dataset archive.
 
-### Step A: Download and Extract
+### Contents of CS6315E_RTE_Submission.zip
 
-1. Download `CS6315E_RTE_Submission.zip` from the GitHub repository.
-2. Extract the ZIP archive using Windows File Explorer, 7-Zip, or WinRAR.
-3. Open the extracted `CS6315E_RTE_Submission` folder.
-
-The extracted folder contains the following files and directories:
+Download and extract `CS6315E_RTE_Submission.zip`. The extracted folder contains:
 
 ```text
 CS6315E_RTE_Submission/
@@ -39,36 +37,28 @@ CS6315E_RTE_Submission/
 │
 ├── final_submission/
 ├── saved_config/
-├── saved_tokenizer/
-│
-└── README.md
+└── saved_tokenizer/
 ```
 
-### Step B: Understand the Submission Contents
+### Extraction Instructions
 
-- **train_rte.ipynb:** Notebook used to train the three model variants.
-- **demo_eval_rte.ipynb:** Notebook used to load the trained models, evaluate them, and perform demo inference on test data.
-- **val.jsonl:** Validation dataset.
-- **submission_base_seed42_lr2e5, submission_base_seed2026_lr25e5, submission_base_seed100_lr15e5:** Directories containing the respective trained model checkpoints.
-- **final_submission:** Final submission files.
-- **saved_config:** Saved model configuration.
-- **saved_tokenizer:** Saved tokenizer files.
-- **WRITTEN REPORT.pdf:** Detailed project report.
-- **MODEL CARD.pdf:** Model documentation and information.
+1. Download `CS6315E_RTE_Submission.zip` from the GitHub repository.
+2. Extract the ZIP archive using Windows File Explorer, 7-Zip, or WinRAR.
+3. Open the extracted `CS6315E_RTE_Submission` folder.
+4. Keep the original folder structure and filenames unchanged.
+5. Open the required Jupyter notebook in Google Colab.
 
-Keep the extracted directory structure and original filenames unchanged.
+The `README.md` file is maintained separately in the GitHub repository and is not included inside the submission ZIP.
 
 ## 3. Submitted Weight Variants and Previously Obtained Validation Results
 
 All three submitted weight checkpoints share the exact same 183,833,090-parameter `DebertaV3EntailmentMSD` architecture.
 
-| Model Variant | Validation Accuracy | Validation F1 |
-|---|---:|---:|
-| Seed 42, LR 2e-5 | 85.20% | 0.8551 |
-| Seed 100, LR 1.5e-5 | 83.39% | 0.8392 |
-| Seed 2026, LR 2.5e-5 | 84.12% | 0.8571 |
+1. **submission_base_seed42_lr2e5/best_model_weights.pt** — Validation Accuracy: **85.20%** | Validation F1: **0.8551**
+2. **submission_base_seed100_lr15e5/best_model_weights.pt** — Validation Accuracy: **83.39%** | Validation F1: **0.8392**
+3. **submission_base_seed2026_lr25e5/best_model_weights.pt** — Validation Accuracy: **84.12%** | Validation F1: **0.8571**
 
-The above metrics are the previously obtained validation results from the three trained model variants.
+These are the previously obtained validation results for the three trained model variants.
 
 ## 4. How to Reproduce Training Using `train_rte.ipynb` (Google Colab)
 
@@ -81,7 +71,7 @@ The above metrics are the previously obtained validation results from the three 
 ### Step B: Upload Dataset Files and Run `train_rte.ipynb`
 
 1. In the top menu bar, click **Runtime → Run all** (or run the cells sequentially from top to bottom).
-2. When Cell 1 prompts **Click 'Choose Files'**, select both of the following files from your local machine:
+2. When Cell 1 prompts **Click 'Choose Files'**, select both of the following files together from your local machine:
    - The training ZIP archive (**Dataset for Challenge-20261017.zip**, which automatically extracts `train.jsonl` into `./rte_data/train.jsonl`).
    - The validation file (`val.jsonl` or `valid.jsonl`).
 3. Cell 2 trains all three weight variants strictly on `./rte_data/train.jsonl`, evaluates them on the validation file, and saves each `best_model_weights.pt` and `valid_predictions.jsonl`.
@@ -94,13 +84,12 @@ The above metrics are the previously obtained validation results from the three 
 ### Step A: Open `demo_eval_rte.ipynb` and Enable T4 GPU Runtime
 
 1. Open the extracted **demo_eval_rte.ipynb** notebook in Google Colab.
-2. Click **Runtime → Change runtime type**.
-3. Under **Hardware accelerator**, select **T4 GPU** and click **Save**.
+2. Click **Runtime → Change runtime type → select T4 GPU → Save**.
 
 ### Step B: Prepare the Saved Model Files
 
-1. Ensure that the Google Drive folder `/content/drive/MyDrive/CS6315E_RTE_Submission` containing the three saved `best_model_weights.pt` files is accessible.
-2. Ensure the saved tokenizer and configuration files are also available in their expected locations.
+1. Ensure the Google Drive folder `/content/drive/MyDrive/CS6315E_RTE_Submission` containing the three saved `best_model_weights.pt` files is accessible.
+2. Ensure the saved tokenizer and configuration files are available in their expected locations.
 
 ### Step C: Upload Validation and Test Files and Run `demo_eval_rte.ipynb`
 
@@ -121,8 +110,7 @@ The above metrics are the previously obtained validation results from the three 
 - The complete project submission is available in `CS6315E_RTE_Submission.zip`.
 - The training dataset is provided separately as `Dataset for Challenge-20261017.zip`.
 - The validation file `val.jsonl` is included in the submission folder.
-- The trained model checkpoints, tokenizer, and configuration files are included in the submission.
+- The three trained model checkpoints, tokenizer, and configuration files are included in the submission.
 - Use the saved checkpoints in `demo_eval_rte.ipynb` to evaluate the previously trained models.
 - Running `train_rte.ipynb` again performs a new training run. Exact reproduction of the previously obtained metrics is not guaranteed because of possible differences in execution environments and GPU computation.
 - Google Colab with a T4 GPU is recommended for training and evaluation.
-
