@@ -50,14 +50,7 @@ CS6315E_RTE_Submission/
 │
 ├── MODEL CARD.pdf
 ├── WRITTEN REPORT.pdf
-│
-├── Dataset for Challenge-20261017.zip
-├── CS6315E_RTE_Final_Submission.zip
-├── val.jsonl
-│
-├── submission_base_seed42_lr2e5/
-├── submission_base_seed100_lr15e5/
-└── submission_base_seed2026_lr25e5/
+
 ```
 
 **Note:** The three trained model checkpoint directories are stored in Google Drive rather than this GitHub repository because of their large size.
@@ -108,22 +101,9 @@ Notebook: `demo_eval_rte.ipynb`
 
 The notebook also displays the validation results for comparison.
 
-## 8. Final Submission Archive
-
-**Archive:** `CS6315E_RTE_Final_Submission.zip`
-
-The archive contains:
-
-```text
-CS6315E_RTE_Final_Submission/
-├── final_submission/
-├── saved_config/
-└── saved_tokenizer/
-```
-
 These are the final submission components, including the model submission files, configuration, and tokenizer.
 
-## 9. Reproducibility
+## 8. Reproducibility
 
 The repository provides the following resources:
 
@@ -133,11 +113,4 @@ The repository provides the following resources:
 - Final submission archive.
 - Trained model checkpoints stored separately in Google Drive.
 
-The training notebook can be used to retrain the models, while the evaluation notebook loads the saved checkpoints from Google Drive.
 
----
-
-**Course:** CS6315E – Neural Networks and Deep Learning
-**Task:** Recognizing Textual Entailment (RTE)
-
-This version keeps the final submission ZIP and does not mention the models ZIP anywhere.
