@@ -150,4 +150,4 @@ The training notebook can be used to retrain the models, while the evaluation no
 ---
 
 Course: CS6315E – Neural Networks and Deep Learning
-Task: Recognizing Textual Entailment (RTE)
+Task: Recognizing Textual Entailment (RTE)9
